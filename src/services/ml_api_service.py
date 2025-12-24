@@ -41,8 +41,15 @@ class MockModel:
         n_samples = X.shape[0]
         return np.random.rand(n_samples) # Return a ranking score
 
-def load_base_models(model_dir='/home/ubuntu/'):
+def load_base_models(model_dir=None):
     """Loads all base models for the ensemble."""
+    if model_dir is None:
+        # Use relative path from the script location
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        model_dir = os.path.join(script_dir, '..', '..', 'models')
+        # Fallback to /home/ubuntu if models directory doesn't exist
+        if not os.path.exists(model_dir):
+            model_dir = '/home/ubuntu/'
     global _MODELS
     if _MODELS is not None:
         return _MODELS
