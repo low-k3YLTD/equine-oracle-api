@@ -1,0 +1,8 @@
+[phases.setup]
+nixPkgs = ["python3", "python3Packages.distutils", "gcc", "libffi", "openssl"]
+
+[phases.install]
+cmds = ["pip install --upgrade pip setuptools wheel", "pip install -r requirements.txt"]
+
+[start]
+cmd = "npm start"  # or whatever your actual start command is (uvicorn, python app.py, etc.)
