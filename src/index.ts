@@ -6,6 +6,21 @@ import { getMlPredictions } from './services/mlPredictionService';
 const app = express();
 const PORT = Number(process.env.PORT) || 8080;
 
+import { oracleEngineOrchestrator } from "./agents/oracleEngineOrchestrator";
+
+// Start the continuous prediction system
+oracleEngineOrchestrator.start().catch((error) => {
+  console.error("Failed to start Oracle Engine:", error);
+  process.exit(1);
+});
+
+// Graceful shutdown
+process.on("SIGTERM", () => {
+  console.log("Shutting down Oracle Engine...");
+  oracleEngineOrchestrator.stop();
+  process.exit(0);
+});
+
 // Middleware
 app.use(express.json({ limit: '10mb' })); // Prevent large payloads
 
