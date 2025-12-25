@@ -6,7 +6,7 @@ import { getMlPredictions } from './services/mlPredictionService';
 const app = express();
 const PORT = Number(process.env.PORT) || 8080;
 
-import { oracleEngineOrchestrator } from "./agents/oracleEngineOrchestrator";
+import { oracleEngineOrchestrator } from "src/agents/oracleEngineOrchestrator";
 
 // Start the continuous prediction system
 oracleEngineOrchestrator.start().catch((error) => {
