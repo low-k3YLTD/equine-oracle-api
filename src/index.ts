@@ -111,8 +111,7 @@ app.post('/api/predict_streak', (req: Request, res: Response) => {
 // 404 handler — safe wildcard
 app.use((req: Request, res: Response) => {
   res.status(404).json({ error: 'Endpoint not found' });
-});
-});
+
 
 // Start server
 app.listen(PORT, '0.0.0.0', () => {
