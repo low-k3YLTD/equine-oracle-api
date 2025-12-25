@@ -19,8 +19,6 @@ RUN npm ci --omit=dev
 COPY . .
 
 # Expose port (optional)
-EXPOSE $PORTapp.listen(PORT, '0.0.0.0', () => {
-    console.log(`Server is running on http://0.0.0.0:${PORT}`);
-});
+EXPOSE $PORT 
 
 CMD ["npm", "start"]
