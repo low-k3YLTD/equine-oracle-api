@@ -9,11 +9,7 @@ const PORT = Number(process.env.PORT) || 8080;
 app.use(express.json());
 
 // CORS Configuration
-const allowedOrigins = [
-    'https://nee-nu.vercel.app',
-    'https://equine-oracle-system-production.up.railway.app',
-    'http://localhost:3000',
-    'http://localhost:3001'
+const allowedOrigins = ['*'];  // Allow all — remove later for prod security
 ];
 
 const corsOptions = {
