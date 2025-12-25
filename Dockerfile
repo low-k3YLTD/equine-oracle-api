@@ -19,6 +19,6 @@ RUN npm ci --omit=dev
 COPY . .
 
 # Expose port (optional)
-EXPOSE $PORT 
+EXPOSE $PORT
 
 CMD ["npm", "start"]
