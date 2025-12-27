@@ -1,4 +1,4 @@
- import express, { Request, Response, NextFunction } from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import { authMiddleware } from './middleware/authMiddleware';
 import { getMlPredictions } from './services/mlPredictionService';
